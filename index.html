@@ -189,6 +189,60 @@
         .timeline-content ul li::before { content: '▹'; position: absolute; left: 0; color: var(--accent); }
         .timeline-item:nth-child(odd) .timeline-content ul li::before { left: auto; right: 0; }
 
+        /*Services*/
+        .services-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:2rem;
+            margin-top:4rem;
+        }
+        
+        .service-card{
+            background:var(--surface);
+            padding:2rem;
+            border-radius:18px;
+            border:1px solid rgba(255,255,255,.08);
+            transition:.3s ease;
+            height:100%;
+        }
+        
+        .service-card:hover{
+            transform:translateY(-8px);
+            border-color:var(--primary);
+            box-shadow:0 15px 35px rgba(0,0,0,.25);
+        }
+        
+        .service-icon{
+            width:70px;
+            height:70px;
+            border-radius:50%;
+            background:rgba(16,185,129,.15);
+            color:var(--primary);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-size:1.8rem;
+            margin-bottom:1.5rem;
+        }
+        
+        .service-card h3{
+            margin-bottom:1rem;
+        }
+        
+        .service-card p{
+            margin-bottom:1.5rem;
+            color:var(--text-secondary);
+            line-height:1.7;
+        }
+        
+        .service-card ul{
+            padding-left:18px;
+        }
+        
+        .service-card li{
+            margin-bottom:.7rem;
+        }
+
         /* Projects */
         .projects-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -440,7 +494,7 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html#home" class="active">Home</a></li>
             <li><a href="index.html#about">About</a></li>
-            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#services">Services</a></li>
             <li><a href="index.html#projects">Projects</a></li>
             <li><a href="index.html#blog">Blog</a></li>
             <li><a href="index.html#contact">Contact</a></li>
@@ -563,55 +617,104 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" style="background: var(--dark);">
-        <div class="section-header fade-in">
-            <h2>Work <span>Experience</span></h2>
-            <p>My professional journey in operations and analytics</p>
-        </div>
-        <div class="timeline">
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>Senior Operations Analyst</h4>
-                    <div class="company">TechFlow Solutions</div>
-                    <div class="date">2022 - Present</div>
-                    <ul>
-                        <li>Led cross-functional initiative reducing order processing time by 40%</li>
-                        <li>Built automated dashboards saving 20+ hours/week in manual reporting</li>
-                        <li>Optimized inventory management system, reducing carrying costs by $500K annually</li>
-                        <li>Mentored team of 3 junior analysts on SQL and Python best practices</li>
-                    </ul>
+    <section id="services" style="background: var(--dark);">
+            <div class="container">
+        
+                <div class="section-header fade-in">
+                    <h2>Services <span>I Offer</span></h2>
+                    <p>
+                        I help businesses improve efficiency, make better decisions, and
+                        build scalable systems through operations, data analytics, and automation.
+                    </p>
                 </div>
-            </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>Operations Analyst</h4>
-                    <div class="company">Global Logistics Inc.</div>
-                    <div class="date">2020 - 2022</div>
-                    <ul>
-                        <li>Analyzed supply chain data identifying $2M in cost-saving opportunities</li>
-                        <li>Implemented KPI tracking system improving on-time delivery from 85% to 97%</li>
-                        <li>Created predictive models for demand forecasting with 94% accuracy</li>
-                        <li>Streamlined vendor evaluation process reducing procurement cycle by 30%</li>
-                    </ul>
+        
+                <div class="services-grid">
+        
+                    <!-- Service 1 -->
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+        
+                        <h3>Data Analytics & Business Intelligence</h3>
+        
+                        <p>
+                            Transform business data into meaningful insights through dashboards, reports, and performance analysis.
+                        </p>
+        
+                        <ul>
+                            <li>Power BI Dashboards</li>
+                            <li>SQL Data Analysis</li>
+                            <li>Excel Reporting</li>
+                            <li>KPI Development</li>
+                            <li>Business Performance Analysis</li>
+                        </ul>
+                    </div>
+        
+                    <!-- Service 2 -->
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+        
+                        <h3>Business Operations</h3>
+        
+                        <p>
+                            Improve operational efficiency by documenting, analyzing, and optimizing business processes.
+                        </p>
+        
+                        <ul>
+                            <li>Process Improvement</li>
+                            <li>Workflow Optimization</li>
+                            <li>SOP Documentation</li>
+                            <li>Operations Reporting</li>
+                            <li>Performance Tracking</li>
+                        </ul>
+                    </div>
+        
+                    <!-- Service 3 -->
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI & Workflow Automation</h3>
+                        <p>
+                            Reduce repetitive work and increase productivity with intelligent automation solutions.
+                        </p>
+        
+                        <ul>
+                            <li>Zapier Automation</li>
+                            <li>Make Workflows</li>
+                            <li>n8n Automation</li>
+                            <li>AI Process Automation</li>
+                            <li>Reporting Automation</li>
+                        </ul>
+                    </div>
+        
+                    <!-- Service 4 -->
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+        
+                        <h3>CRM & Project Systems</h3>
+        
+                        <p>
+                            Organize projects, customers, and teams using scalable systems and best practices.
+                        </p>
+        
+                        <ul>
+                            <li>CRM Setup & Optimization</li>
+                            <li>Lead Tracking Systems</li>
+                            <li>Project Management</li>
+                            <li>ClickUp & Asana</li>
+                            <li>Notion Workspaces</li>
+                        </ul>
+                    </div>
+        
                 </div>
+        
             </div>
-            <div class="timeline-item fade-in">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <h4>Junior Business Analyst</h4>
-                    <div class="company">DataDrive Consulting</div>
-                    <div class="date">2019 - 2020</div>
-                    <ul>
-                        <li>Supported client projects across retail, healthcare, and finance sectors</li>
-                        <li>Developed Excel macros automating monthly reporting processes</li>
-                        <li>Conducted process mapping workshops identifying bottlenecks</li>
-                        <li>Assisted in SAP implementation for mid-size manufacturing client</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Projects Section -->
