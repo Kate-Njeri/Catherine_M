@@ -192,55 +192,94 @@
         /*Services*/
         .services-grid{
             display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
             gap:2rem;
             margin-top:4rem;
         }
-        
         .service-card{
-            background:var(--surface);
-            padding:2rem;
-            border-radius:18px;
+            background:rgba(255,255,255,.03);
+        
             border:1px solid rgba(255,255,255,.08);
-            transition:.3s ease;
-            height:100%;
+        
+            border-radius:24px;
+        
+            padding:2.5rem;
+        
+            transition:.35s;
+        
+            backdrop-filter:blur(15px);
+        
+            position:relative;
+        
+            overflow:hidden;
         }
         
         .service-card:hover{
-            transform:translateY(-8px);
+        
+            transform:translateY(-10px);
+        
             border-color:var(--primary);
-            box-shadow:0 15px 35px rgba(0,0,0,.25);
+        
+            box-shadow:0 20px 40px rgba(0,0,0,.25);
         }
         
         .service-icon{
-            width:70px;
-            height:70px;
-            border-radius:50%;
-            background:rgba(16,185,129,.15);
+        
+            font-size:2.6rem;
+        
             color:var(--primary);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            font-size:1.8rem;
+        
             margin-bottom:1.5rem;
         }
         
         .service-card h3{
+        
             margin-bottom:1rem;
+        
+            color:white;
         }
         
         .service-card p{
-            margin-bottom:1.5rem;
-            color:var(--text-secondary);
-            line-height:1.7;
+        
+            color:var(--text-light);
+        
+            line-height:1.8;
+        
+            margin-bottom:1.8rem;
+        }
+        
+        .divider{
+        
+            width:60px;
+        
+            height:3px;
+        
+            background:var(--primary);
+        
+            margin-bottom:1.8rem;
+        
+            border-radius:10px;
         }
         
         .service-card ul{
-            padding-left:18px;
+        
+            list-style:none;
+        
+            padding:0;
         }
         
         .service-card li{
-            margin-bottom:.7rem;
+        
+            margin-bottom:1rem;
+        
+            color:var(--text-light);
+        }
+        
+        .service-card li i{
+        
+            color:var(--primary);
+        
+            margin-right:.8rem;
         }
 
         /* Projects */
@@ -641,13 +680,13 @@
                         <p>
                             Transform business data into meaningful insights through dashboards, reports, and performance analysis.
                         </p>
-        
+                        <div class="divider"></div>
                         <ul>
-                            <li>Power BI Dashboards</li>
-                            <li>SQL Data Analysis</li>
-                            <li>Excel Reporting</li>
-                            <li>KPI Development</li>
-                            <li>Business Performance Analysis</li>
+                            <li><i class="fas fa-check"></i> Power BI Dashboards</li>
+                            <li><i class="fas fa-check"></i> SQL Data Analysis</li>
+                            <li><i class="fas fa-check"></i> Excel Reporting</li>
+                            <li><i class="fas fa-check"></i> KPI Development</li>
+                            <li><i class="fas fa-check"></i> Business Performance Analysis</li>
                         </ul>
                     </div>
         
@@ -662,13 +701,13 @@
                         <p>
                             Improve operational efficiency by documenting, analyzing, and optimizing business processes.
                         </p>
-        
+                        <div class="divider"></div>
                         <ul>
-                            <li>Process Improvement</li>
-                            <li>Workflow Optimization</li>
-                            <li>SOP Documentation</li>
-                            <li>Operations Reporting</li>
-                            <li>Performance Tracking</li>
+                            <li><i class="fas fa-check"></i> Process Improvement</li>
+                            <li><i class="fas fa-check"></i> Workflow Optimization</li>
+                            <li><i class="fas fa-check"></i> SOP Documentation</li>
+                            <li><i class="fas fa-check"></i> Operations Reporting</li>
+                            <li><i class="fas fa-check"></i> Performance Tracking</li>
                         </ul>
                     </div>
         
@@ -681,13 +720,13 @@
                         <p>
                             Reduce repetitive work and increase productivity with intelligent automation solutions.
                         </p>
-        
+                        <div class="divider"></div>
                         <ul>
-                            <li>Zapier Automation</li>
-                            <li>Make Workflows</li>
-                            <li>n8n Automation</li>
-                            <li>AI Process Automation</li>
-                            <li>Reporting Automation</li>
+                            <li><i class="fas fa-check"></i> Zapier Automation</li>
+                            <li><i class="fas fa-check"></i> Make Workflows</li>
+                            <li><i class="fas fa-check"></i> n8n Automation</li>
+                            <li><i class="fas fa-check"></i> AI Process Automation</li>
+                            <li><i class="fas fa-check"></i> Reporting Automation</li>
                         </ul>
                     </div>
         
@@ -702,13 +741,13 @@
                         <p>
                             Organize projects, customers, and teams using scalable systems and best practices.
                         </p>
-        
+                        <div class="divider"></div>
                         <ul>
-                            <li>CRM Setup & Optimization</li>
-                            <li>Lead Tracking Systems</li>
-                            <li>Project Management</li>
-                            <li>ClickUp & Asana</li>
-                            <li>Notion Workspaces</li>
+                            <li><i class="fas fa-check"></i> CRM Setup & Optimization</li>
+                            <li><i class="fas fa-check"></i> Lead Tracking Systems</li>
+                            <li><i class="fas fa-check"></i> Project Management</li>
+                            <li><i class="fas fa-check"></i> ClickUp & Asana</li>
+                            <li><i class="fas fa-check"></i> Notion Workspaces</li>
                         </ul>
                     </div>
         
