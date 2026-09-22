@@ -201,13 +201,43 @@
         .cta-section p { color: var(--gray); margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto; }
 
         /* Contact Form */
-        .contact-section {
-            padding: 4rem 5%; max-width: 600px; margin: 0 auto;
+        #contact {
+        padding: 4rem 5%;
+        max-width: 1000px;
+        margin: 0 auto;
         }
-        .contact-section h2 { text-align: center; margin-bottom: 0.5rem; }
-        .contact-section > p { text-align: center; color: var(--gray); margin-bottom: 2rem; }
+
+        #contact .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        #contact .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        #contact .section-header p {
+            color: var(--gray);
+            margin: 0 auto;
+        }
+        
+        .contact-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
         .contact-form {
-            display: flex; flex-direction: column; gap: 1.5rem;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            width: 100%;
+            position: relative;
         }
         .form-group { position: relative; }
         .form-group input, .form-group textarea {
@@ -526,7 +556,7 @@
     <section class="cta-section">
         <h2>Let's Build Better Business Systems</h2>
         <p>Whether you're looking for a Business Operations Analyst, Data Analyst, or Process Improvement Specialist, I'd love to discuss how I can help your team improve efficiency through data, automation, and scalable business processes.</p>
-        <a href="#contact-form" class="btn btn-primary">
+        <a href="#contact" class="btn btn-primary">
             <i class="fas fa-envelope"></i> Get In Touch
         </a>
     </section>
