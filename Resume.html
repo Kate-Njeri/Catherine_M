@@ -608,12 +608,18 @@
     <script>
         // Particle Animation
         const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
+        let ctx = null;
         let particles = [];
+        
+        if (canvas) {
+            ctx = canvas.getContext('2d');
+        }
 
         function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+        if (!canvas) return;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
         }
 
         class Particle {
@@ -638,12 +644,14 @@
         }
 
         function initParticles() {
+            if (!canvas) return;
             particles = [];
             const count = Math.min(window.innerWidth / 10, 100);
             for (let i = 0; i < count; i++) particles.push(new Particle());
         }
 
         function animateParticles() {
+            if (!canvas || !ctx) return;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             particles.forEach((p, i) => {
                 p.update(); p.draw();
@@ -801,10 +809,19 @@ contactForm.addEventListener('submit', async (e) => {
 
         // Initialize
         window.addEventListener('load', () => {
-            resizeCanvas(); initParticles(); animateParticles(); renderBlogPosts();
-            setTimeout(() => { document.getElementById('loader').classList.add('hidden'); }, 800);
-        });
-        window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+        if (canvas) {
+            resizeCanvas();
+            initParticles();
+            animateParticles();
+        }
+    
+        const loader = document.getElementById('loader');
+        if (loader) {
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 800);
+        }
+    });
     </script>
 </body>
 </html>
