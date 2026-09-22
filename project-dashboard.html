@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real-Time Operations Dashboard | Catherine Murigi</title>
+    <title>CRM & Lead Management System | Catherine Murigi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -315,8 +315,8 @@
             <a href="index.html#projects" class="back-link">
                 <i class="fas fa-arrow-left"></i> Back to Projects
             </a>
-            <h1>Real-Time <span>Operations</span> Dashboard</h1>
-            <p>An interactive executive dashboard connecting to live databases across 12 distribution centers, providing real-time KPI visibility.</p>
+            <h1>CRM & Lead <span>Management</span> System</h1>
+            <p>Turning incoming wellness inquiries into structured lead records, clearer follow-up, and a more manageable pipeline.</p>
         </div>
     </header>
 
@@ -324,20 +324,20 @@
     <section class="content-section">
         <div class="metrics-grid">
             <div class="metric-card">
-                <div class="value">12</div>
-                <div class="label">Distribution Centers</div>
+                <div class="value">5</div>
+                <div class="label">Core Airtable Tables</div>
             </div>
             <div class="metric-card">
-                <div class="value">Live</div>
-                <div class="label">Data Updates</div>
+                <div class="value">4</div>
+                <div class="label">Service Pathways</div>
             </div>
             <div class="metric-card">
-                <div class="value">97%</div>
-                <div class="label">On-Time Delivery</div>
+                <div class="value">5</div>
+                <div class="label">Workflow Handoffs</div>
             </div>
             <div class="metric-card">
-                <div class="value">45+</div>
-                <div class="label">KPIs Tracked</div>
+                <div class="value">1</div>
+                <div class="label">Central Lead Record</div>
             </div>
         </div>
     </section>
@@ -356,65 +356,106 @@
     <!-- Main Content -->
     <section class="content-section">
         <h2>The Challenge</h2>
-        <p>Global Logistics Inc. executives lacked real-time visibility into operations across their 12 distribution centers. Monthly reports were outdated by the time they reached leadership, and critical issues like capacity bottlenecks or delivery delays were discovered days after they occurred. The company needed a single source of truth that updated in real-time.</p>
+        <p>Wellness inquiries involved several steps after the initial signup: identifying the service a person is interested in, collecting the right information, booking an appointment, and making sure the team knows what to do next. Without a structured workflow, these handoffs became scattered across forms, email, calendars, and separate records.
+        <br>The goal was to create a simple CRM foundation that gives the team one clear place to understand each lead, track where they are in the process, and trigger the next step without relying on manual coordination at every stage.
+        <br>The first step was understanding the workflow. Before building the CRM, I audited how the leads moved from initial inquiry to service delivery; what information was collected, where it lived, what happened next, and where handoffs occurred.
+        <br>The audit showed that the workflow involved multiple stages across lead capture, service-specific intake, booking, and team follow-up. The opportunity was to create a clearer system connecting these stages rather than treating each step as a separate task.</p>
 
         <h2>My Approach</h2>
         <div class="process-steps">
             <div class="process-step">
                 <div class="step-number">1</div>
                 <div class="step-content">
-                    <h4>Data Architecture Design</h4>
-                    <p>Designed a star schema data warehouse in PostgreSQL with fact tables for orders, shipments, and inventory, and dimension tables for time, location, product, and carrier. Implemented incremental ETL loads every 15 minutes.</p>
+                    <h4>Workflow Audit</h4>
+                    <p>Reviewed the existing lead journey from initial inquiry through onboarding and appointment booking to identify where information, ownership, and follow-up could break down.</p>
                 </div>
             </div>
             <div class="process-step">
                 <div class="step-number">2</div>
                 <div class="step-content">
-                    <h4>Live Data Pipeline</h4>
-                    <p>Built Python scripts using SQLAlchemy and Apache Kafka to stream data from SAP ERP, WMS, and TMS systems into the warehouse. Added data quality checks with Great Expectations to catch anomalies before they reached the dashboard.</p>
+                    <h4>Workflow Mapping</h4>
+                    <p>Mapped the steps, tools, information collected, and handoffs across the customer journey.</p>
                 </div>
             </div>
             <div class="process-step">
                 <div class="step-number">3</div>
                 <div class="step-content">
-                    <h4>Dashboard Development</h4>
-                    <p>Created 5 interconnected Tableau dashboards: Executive Summary, Operations Detail, Financial Metrics, Quality Control, and Predictive Alerts. Each dashboard supports drill-down from corporate level to individual facility and SKU.</p>
+                    <h4>CRM Structure</h4>
+                    <p>Designed the Airtable structure around the information the workflow actually needed, rather than simply creating tables first.</p>
                 </div>
             </div>
             <div class="process-step">
                 <div class="step-number">4</div>
                 <div class="step-content">
-                    <h4>Alert System</h4>
-                    <p>Implemented threshold-based alerts via Slack and email for KPIs falling outside acceptable ranges. Executives receive morning briefings with overnight performance summaries and exception reports.</p>
+                    <h4>Automation & Handoffs</h4>
+                    <p>Connected forms, email, booking, notifications, and reminders so the next step could happen with less manual coordination.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Visibility & Follow-Up</h4>
+                    <p>Created a centralized view of leads, service pathways, onboarding status, and appointments so the team could see what was happening and what needed attention.</p>
                 </div>
             </div>
         </div>
 
-        <h2>Key Results</h2>
+        <h2>What I Built</h2>
         <ul>
-            <li><strong>Real-time visibility</strong> — executives now see operations status updated every 15 minutes instead of monthly</li>
-            <li><strong>97% on-time delivery</strong> — up from 85% by catching bottlenecks before they escalated</li>
-            <li><strong>$400K saved annually</strong> — reduced expedited shipping through proactive capacity management</li>
-            <li><strong>20 hours/week saved</strong> — eliminated manual report compilation across 12 facilities</li>
+            <li><strong>Leads table:</strong> a centralized record for incoming wellness inquiries and their current status.</li>
+            <li><strong>Therapy Intakes:</strong> a dedicated service table for therapy-related onboarding information.</li>
+            <li><strong>Fitness Assessments:</strong> a structured place for fitness coaching intake information.</li>
+            <li><strong>Nutrition Assessments:</strong> a dedicated pathway for nutrition-related onboarding.</li>
+            <li><strong>Appointments:</strong> a central view of scheduled client sessions and the booking handoff.</li>
         </ul>
 
-        <h2>Dashboard Features</h2>
-        <p>The executive dashboard includes several innovative features designed for operational decision-making:</p>
-        <ul>
-            <li><strong>Capacity Heatmap:</strong> Visual grid showing utilization rates across all 12 centers with color-coded urgency levels</li>
-            <li><strong>Delivery Performance Tracker:</strong> Real-time map view of in-transit shipments with ETA predictions</li>
-            <li><strong>Cost Variance Analysis:</strong> Automated comparison of actual vs. budgeted costs by facility and product line</li>
-            <li><strong>Predictive Alerts:</strong> ML-powered warnings for potential delays based on weather, traffic, and historical patterns</li>
-        </ul>
+        <<h2>The Workflow</h2>
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Signup → Airtable</h4>
+                    <p>An incoming wellness signup becomes a structured lead record instead of remaining as an unorganized inquiry.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Service-Specific Email → Onboarding Form</h4>
+                    <p>The lead receives the appropriate next-step communication and form based on the service they selected.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Form → Service Table</h4>
+                    <p>Submitted onboarding information is connected to the appropriate service-specific Airtable record.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Booking → Appointment Record</h4>
+                    <p>The booking step creates a clearer transition from lead management into scheduled service delivery.</p>
+                </div>
+            </div>
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h4>Booking → Team Notification + Reminder</h4>
+                    <p>The relevant team members are notified when an appointment is booked, with reminders supporting the next action.</p>
+                </div>
+            </div>
+        </div>
 
-        <h2>Technical Stack</h2>
-        <p>The solution uses a modern data stack optimized for speed and reliability:</p>
+        <h2>Operational Impact</h2>
+        <p></p>
         <ul>
-            <li><strong>Data Layer:</strong> PostgreSQL data warehouse with TimescaleDB extension for time-series optimization</li>
-            <li><strong>Streaming:</strong> Apache Kafka for real-time event streaming from operational systems</li>
-            <li><strong>ETL:</strong> Python scripts with Pandas and SQLAlchemy, orchestrated by Apache Airflow</li>
-            <li><strong>Visualization:</strong> Tableau Server with embedded analytics and row-level security</li>
-            <li><strong>Alerts:</strong> Python microservice integrating with Slack API and SendGrid</li>
+            <li><strong>Centralized visibility</strong> - lead information is organized in one CRM-style system.</li>
+            <li><strong>Clearer follow-up</strong> - lead status makes it easier to see what needs to happen next.</li>
+            <li><strong>Standardized onboarding</strong> - each service has a defined information-collection path.</li>
+            <li><strong>Automated handoffs</strong> - forms, booking, notifications, and reminders connect the stages of the journey.</li>
+            <li><strong>Reduced manual coordination</strong> - routine updates and notifications do not need to depend entirely on someone remembering to send them.</li>
         </ul>
     </section>
 
@@ -422,23 +463,19 @@
     <section class="content-section" style="padding-top: 0;">
         <h2>Technologies Used</h2>
         <div class="tech-stack">
-            <span class="tech-tag">Tableau</span>
-            <span class="tech-tag">PostgreSQL</span>
-            <span class="tech-tag">Apache Kafka</span>
-            <span class="tech-tag">Python</span>
-            <span class="tech-tag">SQLAlchemy</span>
-            <span class="tech-tag">Apache Airflow</span>
-            <span class="tech-tag">TimescaleDB</span>
-            <span class="tech-tag">Slack API</span>
-            <span class="tech-tag">Docker</span>
-            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">Airtable</span>
+            <span class="tech-tag">Google Forms</span>
+            <span class="tech-tag">Gmail</span>
+            <span class="tech-tag">Calendly</span>
+            <span class="tech-tag">Slack</span>
+            <span class="tech-tag">n8n</span>
         </div>
     </section>
 
     <!-- CTA -->
     <section class="cta-section">
-        <h2>Need a custom dashboard solution?</h2>
-        <p>I can help you build real-time visibility into your operations with tailored dashboards and automated reporting.</p>
+        <h2>Need a clearer lead management workflow?</h2>
+        <p>I can help you turn scattered inquiries, follow-ups, and handoffs into a structured CRM and workflow your team can actually use.</p>
         <a href="#contact-form" class="btn btn-primary">
             <i class="fas fa-envelope"></i> Get In Touch
         </a>
@@ -458,7 +495,7 @@
                     <label for="email">Email Address</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" id="subject" name="subject" placeholder=" " value="Re: Real-Time Operations Dashboard">
+                    <input type="text" id="subject" name="subject" placeholder=" " value="Re: CRM & Lead Management">
                     <label for="subject">Subject</label>
                 </div>
                 <div class="form-group">
@@ -471,14 +508,14 @@
             </form>
         <div class="social-links">
             <a href="https://www.linkedin.com/in/catherine-murigi/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="https://www.instagram.com/cate__smm/" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:njericatherine03@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.instagram.com/cate__smm/" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="mailto:njericatherine03@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p> 2024 Alex Chen. Built with passion for operational excellence.</p>
+        <p> 2026 Catherine Murigi. Built with passion for operational excellence.</p>
         <p style="margin-top: 0.5rem; font-size: 0.875rem;">
             <a href="https://github.com" target="_blank">View Source on GitHub</a>
         </p>
