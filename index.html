@@ -878,21 +878,21 @@
             <p>Have a project in mind or want to collaborate? Let's talk!</p>
         </div>
         <div class="contact-container fade-in">
-            <form class="contact-form" id="contactForm">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/moevdlbv" method="POST">
                 <div class="form-group">
-                    <input type="text" id="name" placeholder=" " required>
+                    <input type="text" id="name" name="name" placeholder=" " required>
                     <label for="name">Your Name</label>
                 </div>
                 <div class="form-group">
-                    <input type="email" id="email" placeholder=" " required>
+                    <input type="email" id="email" name="email" placeholder=" " required>
                     <label for="email">Email Address</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" id="subject" placeholder=" ">
+                    <input type="text" id="subject" name="subject" placeholder=" ">
                     <label for="subject">Subject</label>
                 </div>
                 <div class="form-group">
-                    <textarea id="message" placeholder=" " required></textarea>
+                    <textarea id="message" placeholder=" " name="message" required></textarea>
                     <label for="message">Your Message</label>
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
@@ -900,10 +900,9 @@
                 </button>
             </form>
             <div class="social-links">
-                <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.linkedin.com/in/catherine-murigi/" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/cate__smm/" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:njericatherine03@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </section>
@@ -1382,15 +1381,68 @@
         });
 
         // Contact Form
-        document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toast-message');
-            toastMessage.textContent = 'Message sent successfully! I\'ll get back to you soon.';
-            toast.classList.add('show');
-            setTimeout(() => { toast.classList.remove('show'); }, 3000);
-            e.target.reset();
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const toast = document.getElementById('toast');
+    const toastMessage = document.getElementById('toast-message');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+
+    // Store original button content
+    const originalButtonContent = submitButton.innerHTML;
+
+    // Show sending state
+    submitButton.disabled = true;
+    submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+    try {
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new FormData(contactForm),
+            headers: {
+                'Accept': 'application/json'
+            }
         });
+
+        if (response.ok) {
+            // Successful submission
+            toastMessage.textContent = "Message sent successfully! I'll get back to you soon.";
+            toast.classList.add('show');
+
+            // Clear the form
+            contactForm.reset();
+
+        } else {
+            // Formspree returned an error
+            const data = await response.json();
+
+            if (data.errors) {
+                toastMessage.textContent = "There was a problem sending your message. Please try again.";
+            } else {
+                toastMessage.textContent = "Something went wrong. Please try again.";
+            }
+
+            toast.classList.add('show');
+        }
+
+    } catch (error) {
+        // Network or connection error
+        toastMessage.textContent = "Unable to send your message. Please check your connection and try again.";
+        toast.classList.add('show');
+
+    } finally {
+        // Restore button
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonContent;
+
+        // Hide toast after 4 seconds
+        setTimeout(() => {
+            toast.classList.remove('show');
+        }, 4000);
+    }
+});
 
         // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
