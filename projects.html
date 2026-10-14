@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="More operations, automation, CRM, and data analytics projects by Catherine Murigi.">
+<title>More Projects | Catherine Murigi</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--primary:#2563eb;--primary-dark:#1d4ed8;--secondary:#0ea5e9;--accent:#06b6d4;--dark:#0f172a;--darker:#020617;--light:#f8fafc;--gray:#94a3b8;--card-bg:rgba(15,23,42,.8);--glass:rgba(255,255,255,.06)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--darker);color:var(--light);line-height:1.6}
+nav{position:fixed;top:0;width:100%;padding:1rem 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:rgba(2,6,23,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--glass)}
+.logo{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+.nav-links{display:flex;gap:1.5rem;list-style:none}.nav-links a{color:var(--light);text-decoration:none;font-weight:500}.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.mobile-menu-btn{display:none;background:none;border:0;color:var(--light);font-size:1.5rem}
+.hero{padding:9rem 5% 4rem;text-align:center;background:linear-gradient(135deg,rgba(37,99,235,.15),rgba(6,182,212,.08));border-bottom:1px solid var(--glass)}
+.eyebrow{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}.hero h1{font-size:clamp(2.3rem,5vw,4rem);line-height:1.15;margin:1rem auto;max-width:850px}.hero h1 span{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero p{color:var(--gray);max-width:700px;margin:0 auto;font-size:1.1rem}
+main{max-width:1250px;margin:auto;padding:3rem 5% 5rem}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}.toolbar p{color:var(--gray)}
+.filters{display:flex;gap:.6rem;flex-wrap:wrap}.filter{border:1px solid var(--glass);background:var(--glass);color:var(--light);padding:.6rem 1rem;border-radius:99px;cursor:pointer}.filter:hover,.filter.active{background:var(--primary);border-color:var(--primary)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:1.5rem}
+.card{display:flex;flex-direction:column;background:var(--card-bg);border:1px solid var(--glass);border-radius:18px;overflow:hidden;transition:transform .25s,border-color .25s;min-height:100%}.card:hover{transform:translateY(-5px);border-color:var(--accent)}
+.card-top{padding:1.5rem;background:linear-gradient(135deg,rgba(37,99,235,.16),rgba(6,182,212,.1));border-bottom:1px solid var(--glass);display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}.icon{width:52px;height:52px;display:grid;place-items:center;background:var(--primary);border-radius:14px;font-size:1.35rem}.status{font-size:.72rem;border:1px solid rgba(6,182,212,.4);color:var(--accent);padding:.3rem .65rem;border-radius:99px;white-space:nowrap}
+.card-body{padding:1.5rem;display:flex;flex-direction:column;flex:1}.category{font-size:.75rem;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:.08em}.card h2{font-size:1.25rem;margin:.45rem 0 .7rem}.card p{font-size:.94rem;color:var(--gray);margin-bottom:1.2rem}.tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:auto;padding-top:.5rem}.tag{font-size:.75rem;color:#bfdbfe;background:rgba(37,99,235,.14);padding:.3rem .65rem;border-radius:99px}.note{font-size:.8rem!important;margin:1rem 0 0!important;color:#94a3b8!important}.card-link{display:inline-flex;gap:.5rem;align-items:center;margin-top:1.2rem;color:var(--accent);font-weight:700;text-decoration:none}.card-link:hover{gap:.8rem}
+.cta{margin-top:3rem;padding:2.5rem;text-align:center;background:linear-gradient(135deg,rgba(37,99,235,.12),rgba(6,182,212,.08));border:1px solid var(--glass);border-radius:18px}.cta h2{font-size:1.7rem;margin-bottom:.5rem}.cta p{color:var(--gray);margin:0 auto 1.25rem;max-width:600px}.btn{display:inline-flex;gap:.6rem;align-items:center;justify-content:center;padding:.85rem 1.3rem;border-radius:9px;text-decoration:none;background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;font-weight:700}
+footer{text-align:center;padding:2rem 5%;border-top:1px solid var(--glass);color:var(--gray);font-size:.9rem}footer a{color:var(--accent);text-decoration:none}
+.hidden{display:none!important}
+@media(max-width:760px){.mobile-menu-btn{display:block;order:2}.nav-links{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--darker);padding:1rem 5%;flex-direction:column;gap:1rem;border-bottom:1px solid var(--glass)}.nav-links.open{display:flex}.toolbar{align-items:flex-start;flex-direction:column}.hero{padding-top:8rem}}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="logo">CM.</a>
+  <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#projects" class="active">Featured Projects</a></li>
+    <li><a href="projects.html" class="active">More Projects</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+<header class="hero">
+  <div class="eyebrow">Portfolio · Selected Work</div>
+  <h1>More projects. <span>Practical systems.</span></h1>
+  <p>A growing collection of operations, automation, CRM, and analytics projects—built to make work easier to track, coordinate, and improve.</p>
+</header>
+<main>
+  <div class="toolbar">
+    <p>Explore projects by capability.</p>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button class="filter active" data-filter="all">All projects</button>
+      <button class="filter" data-filter="automation">Automation & AI</button>
+      <button class="filter" data-filter="operations">Operations</button>
+      <button class="filter" data-filter="data">Data & Reporting</button>
+      <button class="filter" data-filter="crm">CRM & Lead Systems</button>
+    </div>
+  </div>
+  <section class="grid" id="projectGrid" aria-label="Project gallery">
+    <article class="card" data-category="automation operations">
+      <div class="card-top"><div class="icon"><i class="fas fa-diagram-project"></i></div><span class="status">Portfolio build</span></div>
+      <div class="card-body"><span class="category">AI Automation · Lead Research</span><h2>AI-Powered Contact Research & Outreach System</h2><p>A reusable workflow concept for researching businesses, enriching existing contact lists, organizing lead records in Google Sheets, and preparing outreach for human review.</p><div class="tags"><span class="tag">n8n</span><span class="tag">Google Sheets</span><span class="tag">AI-assisted research</span><span class="tag">Human review</span></div><p class="note">Demo project in development. Use synthetic or public data unless you have permission to process real contact data.</p></div>
+    </article>
+    <article class="card" data-category="operations data">
+      <div class="card-top"><div class="icon"><i class="fas fa-list-check"></i></div><span class="status">Interactive prototype</span></div>
+      <div class="card-body"><span class="category">Operations · Personal Productivity</span><h2>Job Search Hub</h2><p>A centralized application tracker concept for recording opportunities, managing application stages, and giving a clearer view of follow-ups and job-search activity.</p><div class="tags"><span class="tag">Google Sheets</span><span class="tag">Apps Script</span><span class="tag">HTML dashboard</span><span class="tag">Workflow tracking</span></div><p class="note">Prototype; describe automation and interactivity only for the features that are working in the published version.</p></div>
+    </article>
+    <article class="card" data-category="data operations">
+      <div class="card-top"><div class="icon"><i class="fas fa-chart-pie"></i></div><span class="status">Dashboard project</span></div>
+      <div class="card-body"><span class="category">Data · Financial Visibility</span><h2>Personal Finance Dashboard</h2><p>A budget-tracking concept that organizes income, expenses, budget categories, and monthly trends into a more useful overview for reviewing spending and planning ahead.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Google Apps Script</span><span class="tag">Dashboard UI</span><span class="tag">Data visualization</span></div><p class="note">Use sample or anonymized data in the public portfolio.</p></div>
+    </article>
+    <article class="card" data-category="operations automation">
+      <div class="card-top"><div class="icon"><i class="fas fa-book-open"></i></div><span class="status">Process design</span></div>
+      <div class="card-body"><span class="category">Operations · Documentation</span><h2>SOP & Workflow Documentation System</h2><p>A process documentation approach for making responsibilities, handoffs, decision points, and recurring tasks easier for a distributed team to understand and follow.</p><div class="tags"><span class="tag">Process mapping</span><span class="tag">SOPs</span><span class="tag">Notion</span><span class="tag">Accountability</span></div><p class="note">Add a sample workflow map or redacted SOP as evidence when available.</p></div>
+    </article>
+    <article class="card" data-category="data">
+      <div class="card-top"><div class="icon"><i class="fas fa-chart-line"></i></div><span class="status">Case study opportunity</span></div>
+      <div class="card-body"><span class="category">Data · Business Intelligence</span><h2>Sales Pipeline & Revenue Analysis</h2><p>An analysis framework for checking CRM data quality, tracking lead-to-opportunity movement, and identifying where sales follow-up or pipeline visibility may be breaking down.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">CRM data</span><span class="tag">KPIs</span></div><p class="note">Best presented with a synthetic dataset, clearly defined metrics, and a short list of actionable findings.</p></div>
+    </article>
+    <article class="card" data-category="automation crm operations">
+      <div class="card-top"><div class="icon"><i class="fas fa-user-check"></i></div><span class="status">Workflow case study</span></div>
+      <div class="card-body"><span class="category">Automation · Client Experience</span><h2>Client Onboarding Workflow</h2><p>A workflow design connecting a signed agreement to intake, project setup, task assignment, notifications, and a clear kickoff handoff.</p><div class="tags"><span class="tag">Zapier</span><span class="tag">Workflow design</span><span class="tag">Task management</span><span class="tag">Client experience</span></div><a class="card-link" href="project-automation.html">View case study <i class="fas fa-arrow-right"></i></a></div>
+    </article>
+    <article class="card" data-category="crm operations automation">
+      <div class="card-top"><div class="icon"><i class="fas fa-address-book"></i></div><span class="status">Case study</span></div>
+      <div class="card-body"><span class="category">CRM · Lead Management</span><h2>CRM & Lead Management System</h2><p>A structured lead journey connecting signup, service-specific intake, booking, appointment records, team notifications, and follow-up visibility.</p><div class="tags"><span class="tag">Airtable</span><span class="tag">n8n</span><span class="tag">Google Forms</span><span class="tag">Calendly</span></div><a class="card-link" href="project-CRM.html">View case study <i class="fas fa-arrow-right"></i></a></div>
+    </article>
+  </section>
+  <section class="cta">
+    <h2>Have a workflow that needs fixing?</h2>
+    <p>I help teams improve operations, organize lead management, and connect tools so fewer things fall through the cracks.</p>
+    <a class="btn" href="index.html#contact"><i class="fas fa-envelope"></i> Let's talk about your project</a>
+  </section>
+</main>
+<footer><p>© 2026 Catherine Murigi · Operations, Analysis & Automation</p><p style="margin-top:.5rem"><a href="index.html">Return to main portfolio</a></p></footer>
+<script>
+const menuButton=document.getElementById('mobileMenuBtn');
+menuButton.addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
+document.querySelectorAll('.filter').forEach(button=>button.addEventListener('click',()=>{
+  document.querySelectorAll('.filter').forEach(b=>b.classList.remove('active'));
+  button.classList.add('active');
+  const filter=button.dataset.filter;
+  document.querySelectorAll('.card').forEach(card=>{
+    const categories=card.dataset.category.split(' ');
+    card.classList.toggle('hidden',filter!=='all'&&!categories.includes(filter));
+  });
+}));
+</script>
+</body>
+</html>
