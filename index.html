@@ -189,88 +189,66 @@
         .timeline-content ul li::before { content: '▹'; position: absolute; left: 0; color: var(--accent); }
         .timeline-item:nth-child(odd) .timeline-content ul li::before { left: auto; right: 0; }
 
-        /*Services*/
-        .services-grid{
-            display:grid;
-            grid-template-columns:repeat(2, 1fr);
-            gap:2rem;
-            margin-top:3rem;
-            max-width:1000px;
-            margin:3rem auto 0;
-        }
-        .service-card{
-            background:rgba(255,255,255,.03);
-        
-            border:1px solid rgba(255,255,255,.08);
-        
-            border-radius:24px;
-        
-            padding:1.75rem;
-        
-            transition:.35s;
-        
-            backdrop-filter:blur(15px);
-        
-            position:relative;
-        
-            overflow:hidden;
-        }
-        
-        .service-card:hover{
-        
-            transform:translateY(-10px);
-        
-            border-color:var(--primary);
-        
-            box-shadow:0 20px 40px rgba(0,0,0,.25);
-        }
-        
-        .service-icon{
-        
-            font-size:1.75rem;
-        
-            color:var(--primary);
-        
-            margin-bottom:.75rem;
-        }
-        
-        .service-card h3{
-        
-            margin-bottom:.75rem;
-        
-            color: white;
-        }
-        
-        .service-card p{
-            color:var(--gray);
-            font-size: 0.9rem;
-            margin-bottom:1rem;
-        }
-        
-        .divider{
-        
-            width:80px;
-            height:1px;
-            background:var(--primary);
-            margin-bottom:1rem;
-            border-radius:10px;
-        }
-        
-        .service-card ul{
-            list-style: none;
-            padding:0;
-        }
-        
-        .service-card li{
-            color:var(--gray);
-            font-size: 0.95rem;
-        }
-        
-        .service-card li i{
-            color:var(--primary);
-            margin-right:.8rem;
-        }
+        /* Services */
+.svc-tabs {
+    display: flex; gap: 0.75rem; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 3rem;
+}
+.svc-tab {
+    padding: 0.75rem 1.5rem; background: var(--glass);
+    border: 1px solid rgba(255,255,255,0.1); color: var(--light);
+    border-radius: 50px; cursor: pointer; font-size: 0.95rem;
+    font-weight: 600; font-family: inherit; transition: all 0.3s;
+}
+.svc-tab:hover { border-color: var(--accent); }
+.svc-tab.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: transparent; box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
 
+.svc-panel { display: none; max-width: 1100px; margin: 0 auto; }
+.svc-panel.active { display: block; animation: fadeInUp 0.5s ease; }
+
+.svc-intro { text-align: center; max-width: 760px; margin: 0 auto 3rem; }
+.svc-intro h3 { font-size: 2rem; margin-bottom: 0.5rem; }
+.svc-tagline { color: var(--accent); font-weight: 600; margin-bottom: 1rem; }
+.svc-intro p { color: var(--gray); }
+.svc-intro .svc-tagline { color: var(--accent); }
+
+.svc-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 2rem; align-items: start;
+}
+/* with an odd number of cards, let the last one span the full row */
+.svc-grid .svc-card:last-child:nth-child(odd) { grid-column: 1 / -1; }
+
+.svc-card {
+    background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08);
+    border-radius: 24px; padding: 1.75rem; transition: .35s;
+    backdrop-filter: blur(15px);
+}
+.svc-card:hover {
+    transform: translateY(-8px); border-color: var(--primary);
+    box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+.svc-card h4 {
+    font-size: 1.15rem; color: white; margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+}
+.svc-card h4 i { color: var(--accent); }
+.svc-card .divider {
+    width: 80px; height: 1px; background: var(--primary);
+    margin-bottom: 1rem; border-radius: 10px;
+}
+.svc-card ul { list-style: none; padding: 0; }
+.svc-card li {
+    color: var(--gray); font-size: 0.95rem; margin-bottom: 0.5rem;
+    display: flex; gap: 0.75rem; align-items: flex-start;
+}
+.svc-card li i { color: var(--primary); margin-top: 0.3rem; font-size: 0.8rem; }
+
+.svc-cta { text-align: center; margin-top: 3rem; }
+        
         /* Projects */
         .projects-grid {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -492,6 +470,8 @@
             .mobile-menu-btn { display: block; }
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .services-grid { grid-template-columns: 1fr; }
+            .svc-tabs { flex-direction: column; align-items: stretch; }
+            .svc-tab { width: 100%; }
             .timeline::before { left: 20px; }
             .timeline-item { width: 100%; left: 0 !important; padding-left: 3rem;
                 padding-right: 0; text-align: left !important; }
@@ -558,103 +538,379 @@
 
     <!-- Service Section -->
     <section id="services" style="background: var(--dark);">
-            <div class="container">
-        
-                <div class="section-header fade-in">
-                    <h2>Areas of <span>Expertise</span></h2>
-                    <p>
-                        Fixing the coordination bottleneck that's slowing down delivery — through clear systems, workflow design, and automation built for how your remote team actually works.
-                    </p>
-                </div>
-        
-                <div class="services-grid">
-        
-                    <!-- Service 1 -->
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <!--i class="fas fa-chart-line"></i-->
-                        </div>
-        
-                        <h3>Executive Assistance &amp; Project Coordination</h3>
-        
-                        <p>
-                            Providing hands-on executive and administrative support while coordinating projects, people, schedules, and priorities to keep work moving forward.
-                        </p>
-                        <div class="divider"></div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Executive Calendar & Meeting Management</li>
-                            <li><i class="fas fa-check"></i> Inbox & Communication Management</li>
-                            <li><i class="fas fa-check"></i> Project Planning & Task Tracking</li>
-                            <li><i class="fas fa-check"></i> Team Coordination & Follow-Ups</li>
-                            <li><i class="fas fa-check"></i> Travel & Logistics Coordination</li>
-                            <li><i class="fas fa-check"></i> Meeting Notes & Action Tracking</li>
-                        </ul>
-                    </div>
-        
-                    <!-- Service 2 -->
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <!--i class="fas fa-cogs"></i-->
-                        </div>
-        
-                        <h3>Business Operations &amp; Process Improvement</h3>
-        
-                        <p>
-                            Organizing business processes, improving workflows, and documenting procedures to support efficient day-to-day operations.
-                        </p>
-                        <div class="divider"></div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Workflow & Process Mapping</li>
-                            <li><i class="fas fa-check"></i> SOP Development & Documentation</li>
-                            <li><i class="fas fa-check"></i> Operational Coordination</li>
-                            <li><i class="fas fa-check"></i> Process Improvement</li>
-                            <li><i class="fas fa-check"></i> Ownership & Handoff Management</li>
-                        </ul>
-                    </div>
-        
-                    <!-- Service 3 -->
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <!--i class="fas fa-robot"></i-->
-                        </div>
-                        <h3>Data Analytics & Business Intelligence</h3>
-                        <p>
-                            Build the dashboards that give you visibility into delivery and team capacity without having to ask anyone for a status update.
-                        </p>
-                        <div class="divider"></div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Power BI Dashboards</li>
-                            <li><i class="fas fa-check"></i> SQL Data Analysis</li>
-                            <li><i class="fas fa-check"></i> Delivery & Capacity Dashboards</li>
-                            <li><i class="fas fa-check"></i> KPI Development</li>
-                            <li><i class="fas fa-check"></i> Executive Reporting</li>
-                        </ul>
-                    </div>
-        
-                    <!-- Service 4 -->
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <!--i class="fas fa-project-diagram"></i-->
-                        </div>
-        
-                        <h3>Systems, AI &amp; Workflow Automation</h3>
-        
-                        <p>
-                            Using digital tools, AI, and automation to streamline workflows, improve information management, and reduce repetitive manual tasks.
-                        </p>
-                        <div class="divider"></div>
-                        <ul>
-                            <li><i class="fas fa-check"></i> HubSpot CRM Setup</li>
-                            <li><i class="fas fa-check"></i> ClickUp &amp; Notion Systems</li>
-                            <li><i class="fas fa-check"></i> Zapier, Make & n8n Automation</li>
-                            <li><i class="fas fa-check"></i> AI-Assisted Workflows</li>
-                            <li><i class="fas fa-check"></i> Client Onboarding Systems</li>
-                        </ul>
-                    </div>
-        
-                </div>
-        
+            <div class="section-header fade-in">
+        <h2><span>Services</span></h2>
+        <p>How I can support you</p>
+    </div>
+
+    <div class="svc-tabs fade-in" role="tablist">
+        <button class="svc-tab active" data-tab="real-estate" role="tab">Real Estate Virtual Assistance</button>
+        <button class="svc-tab" data-tab="ecommerce" role="tab">E-commerce Virtual Assistance</button>
+        <button class="svc-tab" data-tab="analysis" role="tab">Operations Analysis</button>
+        <button class="svc-tab" data-tab="executive" role="tab">Executive Virtual Assistance</button>
+    </div>
+
+    <!-- REAL ESTATE -->
+    <div class="svc-panel active" id="tab-real-estate" role="tabpanel">
+        <div class="svc-intro">
+            <h3>Real Estate Virtual Assistance</h3>
+            <p class="svc-tagline">Organized Property Operations, Responsive Client Support and Better-Managed Listings</p>
+            <p>I support property owners, real estate agents, property managers and short-term rental hosts with the administrative and client-facing tasks required to keep their properties running smoothly.</p>
+        </div>
+
+        <div class="svc-grid">
+            <div class="svc-card">
+                <h4><i class="fas fa-key"></i> Long-Term Rental Support</h4>
+                <div class="divider"></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Respond to inquiries from prospective tenants</li>
+                    <li><i class="fas fa-check"></i> Schedule property viewings and appointments</li>
+                    <li><i class="fas fa-check"></i> Maintain rental inquiry and follow-up trackers</li>
+                    <li><i class="fas fa-check"></i> Update property availability and rental information</li>
+                    <li><i class="fas fa-check"></i> Organize tenant application documents</li>
+                    <li><i class="fas fa-check"></i> Follow up on application and lease requirements</li>
+                    <li><i class="fas fa-check"></i> Coordinate tenant onboarding and move-in information</li>
+                    <li><i class="fas fa-check"></i> Track maintenance requests and escalate urgent cases</li>
+                </ul>
             </div>
+
+            <div class="svc-card">
+                <h4><i class="fas fa-umbrella-beach"></i> Short-Term Rental and Airbnb Support</h4>
+                <div class="divider"></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Create and update short-term rental listings</li>
+                    <li><i class="fas fa-check"></i> Write clear, appealing property descriptions</li>
+                    <li><i class="fas fa-check"></i> Update rates, availability and property information</li>
+                    <li><i class="fas fa-check"></i> Respond to booking and pre-booking inquiries</li>
+                    <li><i class="fas fa-check"></i> Send check-in, check-out and house-rule information</li>
+                    <li><i class="fas fa-check"></i> Coordinate guest arrival and departure details</li>
+                    <li><i class="fas fa-check"></i> Support cleaning and maintenance scheduling</li>
+                    <li><i class="fas fa-check"></i> Follow up with guests during and after their stay</li>
+                    <li><i class="fas fa-check"></i> Draft guest review responses</li>
+                    <li><i class="fas fa-check"></i> Escalate urgent guest or property issues</li>
+                </ul>
+            </div>
+
+            <div class="svc-card">
+                <h4><i class="fas fa-list-alt"></i> Property Listing Management</h4>
+                <div class="divider"></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Create new property listings</li>
+                    <li><i class="fas fa-check"></i> Write and edit listing titles and descriptions</li>
+                    <li><i class="fas fa-check"></i> Upload and organize property photographs</li>
+                    <li><i class="fas fa-check"></i> Update prices, amenities and availability</li>
+                    <li><i class="fas fa-check"></i> Review listings for accuracy and consistency</li>
+                    <li><i class="fas fa-check"></i> Optimize descriptions using relevant keywords</li>
+                    <li><i class="fas fa-check"></i> Maintain property information across MLS platforms</li>
+                    <li><i class="fas fa-check"></i> Monitor expired, incomplete or outdated listings</li>
+                </ul>
+            </div>
+
+            <div class="svc-card">
+                <h4><i class="fas fa-comments"></i> Client, Tenant and Investor Communication</h4>
+                <div class="divider"></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Respond to client inquiries through email, phone and WhatsApp</li>
+                    <li><i class="fas fa-check"></i> Manage investor, tenant and guest follow-ups</li>
+                    <li><i class="fas fa-check"></i> Provide property or investment information</li>
+                    <li><i class="fas fa-check"></i> Manage complaints and live escalation calls</li>
+                    <li><i class="fas fa-check"></i> Maintain professional and confidential communication</li>
+                </ul>
+            </div>
+
+            <div class="svc-card">
+                <h4><i class="fas fa-database"></i> CRM and Database Management</h4>
+                <div class="divider"></div>
+                <ul>
+                    <li><i class="fas fa-check"></i> Create and update client and property records</li>
+                    <li><i class="fas fa-check"></i> Log calls, emails, meetings and follow-up actions</li>
+                    <li><i class="fas fa-check"></i> Categorize support tickets and client inquiries</li>
+                    <li><i class="fas fa-check"></i> Maintain accurate contact and transaction information</li>
+                    <li><i class="fas fa-check"></i> Prepare reports on recurring client issues</li>
+                    <li><i class="fas fa-check"></i> Clean and organize outdated CRM records</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="svc-cta">
+            <a href="#contact" class="btn btn-primary"><i class="fas fa-handshake"></i> Get Support With Your Property</a>
+        </div>
+    </div>
+
+    <!-- E-COMMERCE (fill in the same way) -->
+   <div class="svc-panel" id="tab-ecommerce" role="tabpanel">
+    <div class="svc-intro">
+        <h3>E-commerce Virtual Assistance</h3>
+        <p class="svc-tagline">Accurate Product Listings, Organized Store Operations and Responsive Customer Support</p>
+        <p>I support online business owners with product management, store updates, customer communication and digital marketing tasks that keep their e-commerce operations organized.</p>
+    </div>
+
+    <div class="svc-grid">
+        <div class="svc-card">
+            <h4><i class="fas fa-box-open"></i> Product Listing Management</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Create and upload product listings</li>
+                <li><i class="fas fa-check"></i> Write clear product titles and descriptions</li>
+                <li><i class="fas fa-check"></i> Add product features, specifications and benefits</li>
+                <li><i class="fas fa-check"></i> Assign product categories, tags and collections</li>
+                <li><i class="fas fa-check"></i> Upload and organize product images</li>
+                <li><i class="fas fa-check"></i> Add image titles and alt text</li>
+                <li><i class="fas fa-check"></i> Create and update SKUs</li>
+                <li><i class="fas fa-check"></i> Update or remove outdated products</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-search"></i> SEO Listing Optimization</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Conduct product keyword research</li>
+                <li><i class="fas fa-check"></i> Create SEO-friendly product titles and product descriptions</li>
+                <li><i class="fas fa-check"></i> Add relevant categories and tags</li>
+                <li><i class="fas fa-check"></i> Review listing structure and readability</li>
+                <li><i class="fas fa-check"></i> Optimize page titles and meta descriptions</li>
+                <li><i class="fas fa-check"></i> Identify missing or duplicated information</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-warehouse"></i> Store and Inventory Administration</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Update product prices and availability</li>
+                <li><i class="fas fa-check"></i> Manage product variants such as size and colour</li>
+                <li><i class="fas fa-check"></i> Organize product information in spreadsheets</li>
+                <li><i class="fas fa-check"></i> Track inventory changes and low-stock products</li>
+                <li><i class="fas fa-check"></i> Check store pages for missing information</li>
+                <li><i class="fas fa-check"></i> Prepare simple inventory and product reports</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-headset"></i> Order and Customer Support</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Respond to product and order inquiries</li>
+                <li><i class="fas fa-check"></i> Monitor order status and delivery updates</li>
+                <li><i class="fas fa-check"></i> Follow up on delayed or incomplete orders</li>
+                <li><i class="fas fa-check"></i> Support returns, exchanges and refund requests</li>
+                <li><i class="fas fa-check"></i> Escalate payment, delivery or product issues</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-envelope"></i> Email and Promotional Support</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Create and format promotional emails</li>
+                <li><i class="fas fa-check"></i> Update subscriber lists</li>
+                <li><i class="fas fa-check"></i> Support campaign scheduling</li>
+                <li><i class="fas fa-check"></i> Draft product-launch and offer emails</li>
+                <li><i class="fas fa-check"></i> Create product graphics in Canva</li>
+                <li><i class="fas fa-check"></i> Prepare abandoned-cart email copy</li>
+            </ul>
+        </div>
+
+        <!-- AUTOMATION ADD-ON (draft) -->
+        <div class="svc-card">
+            <h4><i class="fas fa-robot"></i> Automation Add-On</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Auto-reply to common product and order questions</li>
+                <li><i class="fas fa-check"></i> Send automated order and delivery status updates</li>
+                <li><i class="fas fa-check"></i> Trigger low-stock alerts to a sheet or chat</li>
+                <li><i class="fas fa-check"></i> Add new customers to email lists automatically</li>
+                <li><i class="fas fa-check"></i> Set up Zapier, Make or n8n workflows for repeat tasks</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="svc-cta">
+        <a href="https://calendly.com/wanjikunaomi-nm/discovery-call-with-naomi" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-handshake"></i> Let's Improve Your Online Store</a>
+    </div>
+</div>
+
+    <!-- EXECUTIVE (fill in the same way) -->
+    <div class="svc-panel" id="tab-executive" role="tabpanel">
+    <div class="svc-intro">
+        <h3>Executive Virtual Assistance</h3>
+        <p class="svc-tagline">Reliable Administrative and Operational Support for Busy CEOs and Business Owners</p>
+        <p>I support executives, founders and growing teams by organizing schedules, communication, projects and recurring administrative tasks.</p>
+    </div>
+
+    <div class="svc-grid">
+        <div class="svc-card">
+            <h4><i class="fas fa-envelope-open-text"></i> Inbox and Email Management</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Organize emails using folders, labels and filters</li>
+                <li><i class="fas fa-check"></i> Conduct routine inbox reviews</li>
+                <li><i class="fas fa-check"></i> Prioritize urgent and important messages</li>
+                <li><i class="fas fa-check"></i> Draft professional replies</li>
+                <li><i class="fas fa-check"></i> Flag messages requiring executive attention</li>
+                <li><i class="fas fa-check"></i> Track pending responses and follow-ups</li>
+                <li><i class="fas fa-check"></i> Help maintain an organized inbox</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-calendar-check"></i> Calendar and Appointment Management</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Schedule and reschedule meetings</li>
+                <li><i class="fas fa-check"></i> Coordinate availability across time zones</li>
+                <li><i class="fas fa-check"></i> Send calendar invitations and reminders</li>
+                <li><i class="fas fa-check"></i> Prevent scheduling conflicts</li>
+                <li><i class="fas fa-check"></i> Organize focus blocks and important deadlines</li>
+                <li><i class="fas fa-check"></i> Schedule discovery calls through Calendly</li>
+                <li><i class="fas fa-check"></i> Review upcoming appointments and commitments</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-plane-departure"></i> Travel and Meeting Coordination</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Research flights and accommodation</li>
+                <li><i class="fas fa-check"></i> Compare travel options and costs</li>
+                <li><i class="fas fa-check"></i> Prepare detailed travel itineraries</li>
+                <li><i class="fas fa-check"></i> Organize transport and reservation information</li>
+                <li><i class="fas fa-check"></i> Maintain travel documents and booking details</li>
+                <li><i class="fas fa-check"></i> Take and organize meeting notes</li>
+                <li><i class="fas fa-check"></i> Track action items and send follow-ups</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-tasks"></i> Project and Task Coordination</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Create and maintain project boards</li>
+                <li><i class="fas fa-check"></i> Assign and categorize tasks</li>
+                <li><i class="fas fa-check"></i> Track deadlines, priorities and progress</li>
+                <li><i class="fas fa-check"></i> Send reminders for pending actions</li>
+                <li><i class="fas fa-check"></i> Prepare weekly progress updates</li>
+                <li><i class="fas fa-check"></i> Coordinate work between team members</li>
+                <li><i class="fas fa-check"></i> Identify overdue or blocked tasks</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-file-invoice-dollar"></i> Expense and Document Management</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Record and categorize expenses</li>
+                <li><i class="fas fa-check"></i> Maintain expense-tracking spreadsheets</li>
+                <li><i class="fas fa-check"></i> Organize receipts and invoices</li>
+                <li><i class="fas fa-check"></i> Monitor payment or reimbursement status</li>
+                <li><i class="fas fa-check"></i> Prepare basic expense summaries</li>
+                <li><i class="fas fa-check"></i> Create step-by-step SOPs</li>
+                <li><i class="fas fa-check"></i> Prepare files for monthly reporting</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-bullhorn"></i> Marketing Administration</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Maintain content calendars</li>
+                <li><i class="fas fa-check"></i> Schedule social media content</li>
+                <li><i class="fas fa-check"></i> Create simple Canva graphics</li>
+                <li><i class="fas fa-check"></i> Update WordPress content</li>
+                <li><i class="fas fa-check"></i> Organize campaign assets</li>
+                <li><i class="fas fa-check"></i> Prepare basic performance reports</li>
+                <li><i class="fas fa-check"></i> Support lead follow-ups from marketing campaigns</li>
+            </ul>
+        </div>
+
+        <!-- AUTOMATION ADD-ON (draft) -->
+        <div class="svc-card">
+            <h4><i class="fas fa-robot"></i> Automation Add-On</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Automate meeting reminders and follow-up emails</li>
+                <li><i class="fas fa-check"></i> Route new emails and requests into task boards</li>
+                <li><i class="fas fa-check"></i> Auto-log receipts and invoices to expense sheets</li>
+                <li><i class="fas fa-check"></i> Build recurring weekly update workflows</li>
+                <li><i class="fas fa-check"></i> Set up Zapier, Make or n8n workflows for repeat tasks</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="svc-cta">
+        <a href="https://calendly.com/wanjikunaomi-nm/discovery-call-with-naomi" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-handshake"></i> Delegate Your Administrative Tasks</a>
+    </div>
+</div>
+        <!-- OPERATIONS ANALYSIS -->
+<div class="svc-panel" id="tab-analysis" role="tabpanel">
+    <div class="svc-intro">
+        <h3>Operations Analysis</h3>
+        <p class="svc-tagline">Clear Sales, Churn and CRM Insights That Show Where Revenue Is Won and Lost</p>
+        <p>I turn scattered CRM, sales and customer data into dashboards and reports that show what is working, what is leaking revenue, and what to fix next.</p>
+    </div>
+
+    <div class="svc-grid">
+        <div class="svc-card">
+            <h4><i class="fas fa-chart-line"></i> Sales Analysis</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Analyze sales performance by product, source and period</li>
+                <li><i class="fas fa-check"></i> Track pipeline stages and conversion rates</li>
+                <li><i class="fas fa-check"></i> Identify where deals stall or drop off</li>
+                <li><i class="fas fa-check"></i> Build revenue and target-vs-actual reports</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-user-minus"></i> Churn Analysis</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Measure churn and retention over time</li>
+                <li><i class="fas fa-check"></i> Segment churn by customer type, plan and tenure</li>
+                <li><i class="fas fa-check"></i> Identify early warning signs of at-risk customers</li>
+                <li><i class="fas fa-check"></i> Summarize findings with recommended actions</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-address-book"></i> CRM Analysis</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Audit HubSpot data for gaps, duplicates and errors</li>
+                <li><i class="fas fa-check"></i> Clean and standardize contact and deal records</li>
+                <li><i class="fas fa-check"></i> Review pipeline structure and lifecycle stages</li>
+                <li><i class="fas fa-check"></i> Report on lead sources and follow-up activity</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-chart-pie"></i> Dashboards and Reporting</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Build dashboards in Power BI and Looker Studio</li>
+                <li><i class="fas fa-check"></i> Write SQL queries and prepare clean datasets</li>
+                <li><i class="fas fa-check"></i> Define KPIs that match business goals</li>
+                <li><i class="fas fa-check"></i> Prepare executive summaries and recurring reports</li>
+            </ul>
+        </div>
+
+        <div class="svc-card">
+            <h4><i class="fas fa-robot"></i> Reporting Automation</h4>
+            <div class="divider"></div>
+            <ul>
+                <li><i class="fas fa-check"></i> Connect CRM data to Google Sheets and dashboards</li>
+                <li><i class="fas fa-check"></i> Automate recurring reports and data refreshes</li>
+                <li><i class="fas fa-check"></i> Set up alerts for stalled deals or at-risk accounts</li>
+                <li><i class="fas fa-check"></i> Build workflows in Zapier, Make or n8n</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="svc-cta">
+        <a href="https://calendly.com/wanjikunaomi-nm/discovery-call-with-naomi" target="_blank" rel="noopener" class="btn btn-primary"><i class="fas fa-handshake"></i> Get Clearer Insight Into Your Business</a>
+    </div>
+</div>
     </section>
 
     <!-- Projects Section -->
@@ -1400,6 +1656,16 @@ contactForm.addEventListener('submit', async (e) => {
             });
         });
 
+        // Services Tabs
+document.querySelectorAll('.svc-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+        document.querySelectorAll('.svc-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.svc-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+});
+        
         // Initialize
         window.addEventListener('load', () => {
             resizeCanvas(); initParticles(); animateParticles(); renderBlogPosts();
