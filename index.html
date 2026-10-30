@@ -192,9 +192,11 @@
         /*Services*/
         .services-grid{
             display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-            gap:1.25rem;
+            grid-template-columns:repeat(2, 1fr);
+            gap:2rem;
             margin-top:3rem;
+            max-width:1000px;
+            margin:3rem auto 0;
         }
         .service-card{
             background:rgba(255,255,255,.03);
@@ -489,6 +491,7 @@
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
             .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .services-grid { grid-template-columns: 1fr; }
             .timeline::before { left: 20px; }
             .timeline-item { width: 100%; left: 0 !important; padding-left: 3rem;
                 padding-right: 0; text-align: left !important; }
